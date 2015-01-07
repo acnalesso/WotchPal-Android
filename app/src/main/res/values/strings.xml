@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">WotchPal</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="error">Whoops, something went wrong!</string>
+    <string name="try_again">Try again</string>
     <string name="action_settings">Settings</string>
 
 </resources>

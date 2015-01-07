@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WotchPal.iml" filepath="$PROJECT_DIR$/WotchPal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WotchPal-Android.iml" filepath="$PROJECT_DIR$/WotchPal-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
