@@ -22,11 +22,12 @@ public class WotchPal extends Activity {
         webview.setWebViewClient(new WebViewClient() {
             @Override
             public void onReceivedError(WebView webView, int errorCode, String description, String failingUrl) {
-                setContentView(R.layout.wotch_pal_error);
+                setContentView(R.layout.error);
+                WebView errorWebView = (WebView) findViewById(R.id.error);
+                errorWebView.loadUrl("file:///android_asset/error.html");
                 setTryAgainClickListener();
             }
         });
-
         webview.loadUrl("http://wotchpal.com");
         setContentView(webview);
     }
