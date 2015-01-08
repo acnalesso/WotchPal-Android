@@ -16,8 +16,11 @@ public class WotchPal extends Activity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        setContentView(R.layout.loading);
+
         final WebView webview = new WebView(this);
         webview.getSettings().setJavaScriptEnabled(true);
+        webview.loadUrl("http://wotchpal.com");
 
         webview.setWebViewClient(new WebViewClient() {
             @Override
@@ -27,9 +30,13 @@ public class WotchPal extends Activity {
                 errorWebView.loadUrl("file:///android_asset/error.html");
                 setTryAgainClickListener();
             }
+
+            @Override
+            public void onPageFinished(WebView webView, String url) {
+                setContentView(webView);
+            }
         });
-        webview.loadUrl("http://wotchpal.com");
-        setContentView(webview);
+
     }
 
     private void setTryAgainClickListener() {

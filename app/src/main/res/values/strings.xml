@@ -3,5 +3,6 @@
 
     <string name="app_name">WotchPal</string>
     <string name="action_settings">Settings</string>
+    <string name="loading">Loading WotchPal...</string>
 
 </resources>
