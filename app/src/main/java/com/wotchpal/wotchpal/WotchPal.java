@@ -11,6 +11,8 @@ import android.widget.Button;
 
 public class WotchPal extends Activity {
 
+    public boolean webViewSuccess = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,15 +27,13 @@ public class WotchPal extends Activity {
         webview.setWebViewClient(new WebViewClient() {
             @Override
             public void onReceivedError(WebView webView, int errorCode, String description, String failingUrl) {
-                setContentView(R.layout.error);
-                WebView errorWebView = (WebView) findViewById(R.id.error);
-                errorWebView.loadUrl("file:///android_asset/error.html");
-                setTryAgainClickListener();
+                webViewSuccess = false;
             }
 
             @Override
             public void onPageFinished(WebView webView, String url) {
-                setContentView(webView);
+                if(webViewSuccess) { setContentView(webview); }
+                else { loadErrorPage(); }
             }
         });
 
@@ -44,10 +44,18 @@ public class WotchPal extends Activity {
         tryAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                webViewSuccess = true;
                 finish();
                 startActivity(getIntent());
             }
         });
+    }
+
+    private void loadErrorPage() {
+        setContentView(R.layout.error);
+        WebView errorWebView = (WebView) findViewById(R.id.error);
+        errorWebView.loadUrl("file:///android_asset/error.html");
+        setTryAgainClickListener();
     }
 
 }
